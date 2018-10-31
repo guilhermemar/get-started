@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Components</h1>
+
+    <div id="app1">
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+    </div>
+
+    <h2>Properties</h2>
+
+
+    <div id="app2">
+      <blog-post-simple title="Minha jornada com Vue"></blog-post>
+      <blog-post-simple title="Blogging com Vue"></blog-post>
+      <blog-post-simple title="Porque vue é tão legal"></blog-post>
+    </div>
+
+    <hr>
+
+    <div id="app3">
+      <blog-post
+        v-for="post in posts"
+        v-bind:key="post.id"
+        v-bind:post="post"
+      ></blog-post>
+    </div>
+
+    <hr>
+
+    <h2>Message to parents with events</h2>
+
+    <div
+      id="app4"
+      v-bind:style="{ fontSize: postFontSize + 'em' }"
+    >
+      <blog-post-emit
+        v-for="post in posts"
+        v-bind:key="post.id"
+        v-bind:post="post"
+
+        v-on:enlarge-text="onEnlargeText"
+      ></blog-post-emit>
+    </div>
+
+    <hr>
+
+    <h2>Custom Input</h2>
+
+    <div id="app5">
+      <custom-input v-model="searchText"></custom-input>
+      <p>{{searchText}}</p>
+    </div>
+
+    <hr>
+
+    <h2>Content Distribution with Slots</h2>
+
+    <alert-box id="app6">
+      Alguma coisa ruim aconteceu. =/
+    </alert-box>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="script.js"></script>
+
+  </body>
+</html>
